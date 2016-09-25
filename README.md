@@ -27,7 +27,9 @@ Put the org.autonomous.fixmounts.plist file in /Libraries/LaunchDaemons:
 
     sudo vi /Libraries/LaunchDaemons/org.autonomous.fixmounts.plist
 
-        #(edit the 'ProgramArguments' string value /path/to/fix_mounts.sh to point to the path where you put the shell script, e.g. /Users/<yourusername>/bin/fix_mounts.sh)
+        #(edit the 'ProgramArguments' string value /path/to/fix_mounts.sh 
+        to point to the path where you put the shell script, 
+        e.g. /Users/<yourusername>/bin/fix_mounts.sh)
 
     sudo launchctl load /Library/LaunchDaemons/org.autonomous.fixmounts.plist 
 
