@@ -21,8 +21,9 @@ mounts="special media Erato"
 # don't change below here unless you know what you are doing with shell scripts.
 
 all_mounts=`/sbin/mount | /usr/bin/grep $t_mnt | /usr/bin/grep -v "map $autofsname on $t_mnt"`
-# echo "$all_mounts"
 
+d=`/bin/date`
+echo "fix_mounts [$d] checking $t_mnt for $mounts"
 for mt in $mounts;
 do
 	full_mount=${t_mnt}/${mt}
@@ -31,11 +32,14 @@ do
 		# it is mounted, let us see if it mounted by the user.
 		mm=`/bin/echo "$all_mounts" | /usr/bin/grep $full_mount` 
 		if [[ ! $mm =~ on.$full_mount.*mounted.by.$mnt_usr ]]; then
-			# echo "it is NOT mounted: $mm"
+			echo "fix_mounts [$d] Remounting: $full_mount - because $mnt_usr not mounted $mm"
 			/usr/bin/sudo /sbin/umount $full_mount 
 			# if resource is busy force unmount with diskutil DANGER
 			if [ ! $? ]; then /usr/sbin/diskutil unmount force $full_mount; fi
 	        /usr/bin/sudo -u $mnt_usr cd $full_mount 
 		fi
+	else
+		echo "fix_mounts [$d] Not mounted: $full_mount - ignoring"
 	fi
 done
+
