@@ -1,3 +1,4 @@
+<!-- scot mcphee -->
 # shell_scripts
 
 This project is just a collection of useful shell scripts that I have written.
@@ -6,3 +7,10 @@ This is licenced to you with the GPL 3 licence. See here - [https://www.gnu.org/
 
 Thanks.
 Scot
+
+## contents
+
+* README.md - this file
+* LICENCE.txt - GPL v3
+* fix_mounts.sh - ensures autofs mounts are mounted by a user and not 'root'
+* org.autonomous.fixmounts.plist - a macOS plist which runs the fix_mounts every 15 secs
