@@ -20,12 +20,19 @@ Scot
 Put the fix_mounts.sh file somewhere safe. /Users/<yourusername>/bin is a good spot. Edit the top part of the shell file to customise it to your environment. See the comments in the file.
 
 Put the org.autonomous.fixmounts.plist file in /Libraries/LaunchDaemons:
-    ```
+
     sudo cp org.autonomous.fixmounts.plist /Libraries/LaunchDaemons
+
     sudo chmod 644 /Libraries/LaunchDaemons/org.autonomous.fixmounts.plist
+
     sudo vi /Libraries/LaunchDaemons/org.autonomous.fixmounts.plist
-    (edit the 'ProgramArguments' string value /path/to/fix_mounts.sh to
-     point to the path where you put the shell script, e.g. /Users/<yourusername>/bin/fix_mounts.sh)
+
+        #(edit the 'ProgramArguments' string value /path/to/fix_mounts.sh to point to the path where you put the shell script, e.g. /Users/<yourusername>/bin/fix_mounts.sh)
+
     sudo launchctl load /Library/LaunchDaemons/org.autonomous.fixmounts.plist 
-    (view the log in /var/log/fixmounts.log with the Console)
-    ```
+
+    sudo tail -F /var/log/fixmounts.log
+
+    	#(or view the log in /var/log/fixmounts.log with the Console)
+    
+
