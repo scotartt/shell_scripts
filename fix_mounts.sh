@@ -1,6 +1,16 @@
 #!/bin/sh
 #
-# this file should be run by 'root'. put it in your root crontab.
+# fix_mounts.sh - ensures autofs mounts are mounted by a user and not 'root'
+#
+# copyright 2016 scot.mcphee@gmail.com 
+#
+# GPL 3.0 LICENCE https://www.gnu.org/licenses/gpl.txt
+#
+# This file should be run by 'root' as the 'sudo' should execute without stopping
+# to ask for your password, unless you run this manually. See the
+# org.autonomous.fixmounts.plist file which accompanies it. This plist executes 
+# the script every 15 seconds. I put mine in /Library/LaunchDaemons  where it will 
+# be run as root whether there is a user logged in or not.
 #
 # autofsname   - the name of the file in /etc/ that is specified in auto_master
 #                e.g. 
